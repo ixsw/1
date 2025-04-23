@@ -1,6 +1,4 @@
-#include <iostream>
-
-using namespace std;
+#include <cstdio>  
 
 int main() 
 {
@@ -8,8 +6,8 @@ int main()
     bool sieve[MAX_SIZE + 1];  
     int n;
 
-    cout << "Введите число N (до " << MAX_SIZE << "): ";
-    cin >> n;
+    printf("Введите число N (до %d): ", MAX_SIZE);
+    scanf("%d", &n);
 
     for (int i = 0; i <= n; i++) 
     {
@@ -28,12 +26,12 @@ int main()
         }
     }
 
-    cout << "Простые числа до " << n << ":\n";
+    printf("Простые числа до %d:\n", n);
     for (int i = 2; i <= n; i++)
     {
         if (sieve[i])
         {
-            cout << i << " ";
+            printf("%d ", i);
         }
     }
 
