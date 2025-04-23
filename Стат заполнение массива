@@ -1,43 +1,48 @@
-#include <cstdio>   
-#include <cstdlib>  
-#include <ctime>    
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
 
 int main()
 {
-    const int SIZE = 10000;  
-    int arr[SIZE];          
+    const int SIZE = 10000;
+    const int MIN_VAL = -100;
+    const int MAX_VAL = 100;
+    int arr[SIZE];
     
     srand(time(0));
 
     for (int i = 0; i < SIZE; i++)
     {
-        arr[i] = rand() % 201 - 100;  
+        arr[i] = rand() % (MAX_VAL - MIN_VAL + 1) + MIN_VAL;
     }
 
-  
     int sum = 0;
-    for (int i = 0; i < SIZE; i++) 
+    for (int i = 0; i < SIZE; i++)
     {
         sum += arr[i];
     }
     double average = (double)sum / SIZE;
 
+    const int STAT_SIZE = MAX_VAL - MIN_VAL + 1;
+    int stats[STAT_SIZE] = {0};  
 
-    int target;
-    printf("Введите число от -100 до 100: ");
-    scanf("%d", &target);
-
-    int count = 0;
-    for (int i = 0; i < SIZE; i++) 
+    for (int i = 0; i < SIZE; i++)
     {
-        if (arr[i] == target)
-        {
-            count++;
-        }
+        int index = arr[i] - MIN_VAL;
+        stats[index]++;
     }
 
     printf("Среднее арифметическое: %.2f\n", average);
-    printf("Число %d встречается %d раз(а).\n", target, count);
+    printf("\nСтатистика встречаемости чисел:\n");
+    
+    for (int i = 0; i < STAT_SIZE; i++)
+    {
+        int number = i + MIN_VAL;
+        if (stats[i] > 0) 
+        {
+            printf("Число %d встречается %d раз(а)\n", number, stats[i]);
+        }
+    }
 
     return 0;
 }
