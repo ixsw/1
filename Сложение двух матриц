@@ -1,12 +1,10 @@
-#include <iostream>
+#include <cstdio> 
 
-using namespace std;
-
-void sumMatrices(int a[2][2], int b[2][2], int result[2][2]) 
+void sumMatrices(int a[5][5], int b[5][5], int result[5][5]) 
 {
-    for(int i = 0; i < 2; i++) 
+    for(int i = 0; i < 5; i++) 
     {
-        for(int j = 0; j < 2; j++) 
+        for(int j = 0; j < 5; j++) 
         {
             result[i][j] = a[i][j] + b[i][j];
         }
@@ -15,19 +13,34 @@ void sumMatrices(int a[2][2], int b[2][2], int result[2][2])
 
 int main() 
 {
-    int matrix1[2][2] = {{10, 20}, {3, 2}};
-    int matrix2[2][2] = {{5, 53}, {7, 50}};
-    int result[2][2];  
+    int matrix1[5][5] = {
+        {10, 20, 30, 40, 50},
+        {5, 10, 15, 20, 25},
+        {1, 2, 3, 4, 5},
+        {6, 7, 8, 9, 10},
+        {11, 12, 13, 14, 15}
+    };
+    
+    int matrix2[5][5] = {
+        {5, 10, 15, 20, 25},
+        {1, 2, 3, 4, 5},
+        {10, 20, 30, 40, 50},
+        {7, 8, 9, 10, 11},
+        {0, 1, 2, 3, 4}
+    };
+    
+    int result[5][5];  
     
     sumMatrices(matrix1, matrix2, result);
     
-    cout << "Результат сложения:\n";
-    for(int i = 0; i < 2; i++) {
-        for(int j = 0; j < 2; j++) 
+    printf("Результат сложения:\n");
+    for(int i = 0; i < 5; i++) 
+    {
+        for(int j = 0; j < 5; j++) 
         {
-            cout << result[i][j] << " ";
+            printf("%d ", result[i][j]); 
         }
-        cout << endl;
+        printf("\n"); 
     }
     
     return 0;
