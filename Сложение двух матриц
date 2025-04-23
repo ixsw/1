@@ -1,11 +1,14 @@
-#include <cstdio> 
+#include <cstdio>
 
-void sumMatrices(int a[5][5], int b[5][5], int result[5][5]) 
+template <typename T, size_t ROWS, size_t COLS>
+void sumMatrices(const T (&a)[ROWS][COLS],   
+                const T (&b)[ROWS][COLS],    
+                T (&result)[ROWS][COLS])    
 {
-    for(int i = 0; i < 5; i++) 
+    for(size_t i = 0; i < ROWS; ++i) 
+    
     {
-        for(int j = 0; j < 5; j++) 
-        {
+        for(size_t j = 0; j < COLS; ++j) {
             result[i][j] = a[i][j] + b[i][j];
         }
     }
@@ -13,35 +16,13 @@ void sumMatrices(int a[5][5], int b[5][5], int result[5][5])
 
 int main() 
 {
-    int matrix1[5][5] = {
-        {10, 20, 30, 40, 50},
-        {5, 10, 15, 20, 25},
-        {1, 2, 3, 4, 5},
-        {6, 7, 8, 9, 10},
-        {11, 12, 13, 14, 15}
-    };
+    int matrix1[5][5] = {/* ... */};
+    int matrix2[5][5] = {/* ... */};
+    int result[5][5];
     
-    int matrix2[5][5] = {
-        {5, 10, 15, 20, 25},
-        {1, 2, 3, 4, 5},
-        {10, 20, 30, 40, 50},
-        {7, 8, 9, 10, 11},
-        {0, 1, 2, 3, 4}
-    };
+    sumMatrices<int, 5, 5>(matrix1, matrix2, result);
     
-    int result[5][5];  
-    
-    sumMatrices(matrix1, matrix2, result);
-    
-    printf("Результат сложения:\n");
-    for(int i = 0; i < 5; i++) 
-    {
-        for(int j = 0; j < 5; j++) 
-        {
-            printf("%d ", result[i][j]); 
-        }
-        printf("\n"); 
-    }
+    // Вывод результата
     
     return 0;
 }
