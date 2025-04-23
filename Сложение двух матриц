@@ -8,7 +8,8 @@ void sumMatrices(const T (&a)[ROWS][COLS],
     for(size_t i = 0; i < ROWS; ++i) 
     
     {
-        for(size_t j = 0; j < COLS; ++j) {
+        for(size_t j = 0; j < COLS; ++j)
+{
             result[i][j] = a[i][j] + b[i][j];
         }
     }
