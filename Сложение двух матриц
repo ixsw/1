@@ -1,9 +1,7 @@
 #include <cstdio>
 
 template <typename T, size_t ROWS, size_t COLS>
-void sumMatrices(const T (&a)[ROWS][COLS],   
-                const T (&b)[ROWS][COLS],    
-                T (&result)[ROWS][COLS])    
+void sumMatrices(const T (&a)[ROWS][COLS], const T (&b)[ROWS][COLS],  T (&result)[ROWS][COLS])    
 {
     for(size_t i = 0; i < ROWS; ++i) 
     
